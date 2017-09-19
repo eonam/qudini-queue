@@ -1,0 +1,15 @@
+<div class="AddCustomer">
+	<form class="form-inline text-center" role="form">
+		<div class="form-group">
+    	<input class="form-control" type="text" placeholder="Name" ng-model="customer.name"/>
+    </div>
+    <div class="form-group">
+	    <select class="form-control" ng-options="product.name for product in products" ng-model="customer.product" placeholder="Product">
+	        <option value="">Choose Product</option>
+	    </select>
+    </div>
+    <div class="form-group">
+    	<button type="button" class="btn btn-default" ng-click="add()">Add Customer</button>
+    </div>
+  </form>
+</div>

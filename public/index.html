@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Queue App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <script src="/bower_components/angularjs/angular.min.js"></script>
+    <script src="/QueueApp.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <!--<script src="/customer/Customer.js"></script>
+    <script src="/add-customer/AddCustomer.js"></script>-->
+</head>
+<body class="Queue" ng-app="qudini.QueueApp" ng-controller="QueueCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <header class="clearfix text-center"><h1>Queue App</h1></header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="body-wrapper">
+                    <div data-ng-view></div>
+                    <div class="add-customer-wrapper clearfix">
+                        <h2>Add Customer</h2>
+                        <add-customer on-added="onCustomerAdded"></add-customer>
+                    </div>
+                    <hr>
+                    <div class="queue-customer-wrapper">
+                        <h2>Queueing Customers</h2>
+                        <ul class="list-group Queue-customer-list">
+                            <li class="list-group-item" ng-repeat="customerData in customers">
+                                <customer customer="customerData" on-served="onCustomerServed" on-removed="onCustomerRemoved"></customer>
+                            </li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <div class="served-customer-wrapper">
+                        <h2>Served Customers</h2>
+                        <ul class="list-group Queue-customer-served-list">
+                            <li class="list-group-item" ng-repeat="customerData in customersServed">
+                                <served-customer customer="customerData"></served-customer>
+                            </li>
+                        </ul>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<div class="Customer clearfix">
+  <span>{{ customer.name }}</span> 
+  <span class="label label-primary">{{ customer.product.name}}</span>
+  <span>{{ customer.queuedTime }}</span>
+  <span class="pull-right">
+	  <button type="button" class="btn btn-default" ng-click="serve()">Serve</button>
+	  <button type="button" class="btn btn-default" ng-click="remove()">Remove</button>
+  </span>
+</div>
